@@ -13,11 +13,6 @@ const About = () => {
       title: "Competitive Coder",
       description: "Active on CodeChef and LeetCode, solving complex algorithmic challenges",
     },
-    {
-      icon: BookOpen,
-      title: "Research Publications",
-      description: "Published work in network coding and EEG signal analysis",
-    },
   ];
 
   return (
