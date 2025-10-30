@@ -8,52 +8,30 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 230 35% 7%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 0% 90%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 83.1%;
 
-    --card: 230 30% 10%;
-    --card-foreground: 210 40% 98%;
+    --radius: 0.5rem;
 
-    --popover: 230 30% 10%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 200 100% 60%;
-    --primary-foreground: 230 35% 7%;
-
-    --secondary: 280 70% 60%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 220 25% 20%;
-    --muted-foreground: 215 20% 70%;
-
-    --accent: 165 100% 55%;
-    --accent-foreground: 230 35% 7%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 220 30% 18%;
-    --input: 220 30% 18%;
-    --ring: 200 100% 60%;
-
-    --radius: 1rem;
-
-    /* Portfolio-specific tokens */
-    --gradient-start: 230 60% 12%;
-    --gradient-mid: 260 55% 18%;
-    --gradient-end: 280 50% 15%;
-    
-    --glow-primary: 200 100% 60%;
-    --glow-secondary: 280 70% 60%;
-    --glow-accent: 165 100% 55%;
-    
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -2px hsl(230 35% 7% / 0.4);
-    --shadow-glow: 0 0 40px hsl(var(--glow-primary) / 0.3);
-    
-    /* Animations */
+    /* Minimal Design Variables */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 }
 
@@ -61,76 +39,29 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
+  
   body {
     @apply bg-background text-foreground;
-    background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-mid)) 50%, hsl(var(--gradient-end)));
-    background-attachment: fixed;
-    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
-  
+
   html {
     scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-weight: 400;
   }
 }
 
 @layer utilities {
-  .glow-primary {
-    box-shadow: 0 0 30px hsl(var(--glow-primary) / 0.4), 0 0 60px hsl(var(--glow-primary) / 0.2);
-  }
-  
-  .glow-secondary {
-    box-shadow: 0 0 30px hsl(var(--glow-secondary) / 0.4), 0 0 60px hsl(var(--glow-secondary) / 0.2);
-  }
-
-  .glow-accent {
-    box-shadow: 0 0 30px hsl(var(--glow-accent) / 0.4), 0 0 60px hsl(var(--glow-accent) / 0.2);
-  }
-  
-  .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-size: 200% auto;
-    animation: gradient-shift 3s ease infinite;
-  }
-
-  @keyframes gradient-shift {
-    0%, 100% { background-position: 0% center; }
-    50% { background-position: 100% center; }
-  }
-  
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-  
-  .animate-glow {
-    animation: glow 3s ease-in-out infinite alternate;
-  }
-  
-  @keyframes glow {
-    from {
-      box-shadow: 0 0 15px hsl(var(--glow-primary) / 0.3),
-                  0 0 30px hsl(var(--glow-primary) / 0.2);
-    }
-    to {
-      box-shadow: 0 0 30px hsl(var(--glow-primary) / 0.6),
-                  0 0 60px hsl(var(--glow-primary) / 0.4);
-    }
-  }
-
-  .card-hover {
+  /* Minimal hover effect */
+  .minimal-hover {
     transition: var(--transition-smooth);
   }
 
-  .card-hover:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-glow);
+  .minimal-hover:hover {
+    opacity: 0.7;
   }
 }
