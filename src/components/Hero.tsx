@@ -1,21 +1,37 @@
 import { Github, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
     <section className="min-h-screen flex items-center pt-20">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl">
-          <h1 className="text-6xl md:text-8xl font-serif font-normal mb-8 text-foreground leading-tight">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-6xl md:text-8xl font-serif font-normal mb-8 text-foreground leading-tight"
+          >
             Shreya Agrawal
-          </h1>
+          </motion.h1>
           
-          <p className="text-xl md:text-2xl text-foreground/70 max-w-3xl mb-12 leading-relaxed font-light">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl md:text-2xl text-foreground/70 max-w-3xl mb-12 leading-relaxed font-light"
+          >
             AI/ML Engineer and researcher specializing in deep learning models, competitive programming, and advanced AI applications. 
             Passionate about building intelligent systems that solve real-world problems.
-          </p>
+          </motion.p>
 
           {/* Social Links */}
-          <div className="flex gap-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex gap-6"
+          >
             <a
               href="https://github.com/Shreya-idle"
               target="_blank"
@@ -35,7 +51,7 @@ const Hero = () => {
               <Linkedin className="h-5 w-5" />
               <span className="text-sm">LinkedIn</span>
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -7,6 +7,7 @@ import Research from "@/components/Research";
 import Hackathons from "@/components/Hackathons";
 import Projects from "@/components/Projects";
 import CodingStats from "@/components/CodingStats";
+import DesignWork from "@/components/DesignWork";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -22,6 +23,7 @@ const Index = () => {
       <Hackathons />
       <Projects />
       <CodingStats />
+      <DesignWork />
       <Contact />
       <Footer />
     </div>

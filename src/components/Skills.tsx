@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 
 const Skills = () => {
   const skillCategories = [
@@ -22,17 +23,27 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 relative">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Skills & Technologies</h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
             Full-stack development with a focus on AI/ML and data science
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {skillCategories.map((category, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-card/50 backdrop-blur-sm border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300"
             >
               <h3 className="text-xl font-semibold mb-4 text-foreground">{category.category}</h3>
@@ -47,7 +58,7 @@ const Skills = () => {
                   </Badge>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

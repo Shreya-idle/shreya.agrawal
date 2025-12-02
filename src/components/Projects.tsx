@@ -1,6 +1,7 @@
 import { ExternalLink, Github, Code } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const projects = [
@@ -34,18 +35,30 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 relative">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Projects</h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
             Innovative solutions and real-world applications
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
-            <Card 
-              key={index} 
-              className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/50 transition-all duration-300 card-hover"
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+            <Card
+              className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/50 transition-all duration-300 card-hover h-full"
             >
               <CardHeader>
                 <div className="flex items-start gap-4 mb-4">
@@ -102,6 +115,7 @@ const Projects = () => {
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
           ))}
         </div>
       </div>
