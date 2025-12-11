@@ -1,5 +1,6 @@
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Download } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
@@ -51,6 +52,17 @@ const Hero = () => {
               <Linkedin className="h-5 w-5" />
               <span className="text-sm">LinkedIn</span>
             </a>
+
+            <Button
+              asChild
+              variant="outline"
+              className="border-foreground/20 text-foreground/80 hover:text-foreground hover:border-foreground/40"
+            >
+              <a href="/resume.pdf" download="Shreya_Agrawal_Resume.pdf">
+                <Download className="h-4 w-4" />
+                <span>Resume</span>
+              </a>
+            </Button>
           </motion.div>
         </div>
       </div>
