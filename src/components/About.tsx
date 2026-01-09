@@ -1,7 +1,6 @@
-import { Brain, Trophy } from "lucide-react";
+import { Brain, Trophy, BookOpen } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
 
 const About = () => {
   const highlights = [
@@ -13,19 +12,7 @@ const About = () => {
     {
       icon: Trophy,
       title: "Competitive Coder",
-      description: (
-        <>
-          Active on{" "}
-          <a href="https://www.codechef.com/users/shreyaidle" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-            🍴 CodeChef
-          </a>{" "}
-          and{" "}
-          <a href="https://leetcode.com/u/shreyaidle/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-            🧠 LeetCode
-          </a>
-          , solving complex algorithmic challenges
-        </>
-      ),
+      description: "Active on CodeChef and LeetCode, solving complex algorithmic challenges",
     },
   ];
 
