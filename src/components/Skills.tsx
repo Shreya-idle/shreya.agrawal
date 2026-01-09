@@ -15,7 +15,7 @@ const Skills = () => {
     },
     {
       category: "AI/ML Frameworks",
-      skills: ["TensorFlow", "PyTorch", "Scikit-learn", "Neural Networks", "NLP"],
+      skills: ["Scikit-learn", "Neural Networks", "NLP"],
       color: "bg-purple-500/20 text-purple-400 border-purple-500/50",
     },
     {

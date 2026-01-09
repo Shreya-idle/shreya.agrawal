@@ -13,6 +13,10 @@ const About = () => {
       icon: Trophy,
       title: "Competitive Coder",
       description: "Active on CodeChef and LeetCode, solving complex algorithmic challenges",
+      links: [
+        { label: "🍳 CodeChef", url: "https://www.codechef.com/users/stiffen" },
+        { label: "💼 LinkedIn", url: "https://www.linkedin.com/in/shreya-agrawal4/" },
+      ],
     },
   ];
 
@@ -76,6 +80,21 @@ const About = () => {
                   <div>
                     <h4 className="text-xl font-semibold mb-2 text-foreground">{item.title}</h4>
                     <p className="text-foreground/60">{item.description}</p>
+                    {item.links && (
+                      <div className="flex gap-3 mt-3">
+                        {item.links.map((link, linkIndex) => (
+                          <a
+                            key={linkIndex}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-primary hover:underline"
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </CardContent>
               </Card>
