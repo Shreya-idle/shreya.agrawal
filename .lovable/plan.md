@@ -10,7 +10,8 @@ Replace the single "AI Intern, Amasqis (6 months)" card with three entries (newe
 
 ## 2. Projects section — update
 - Keep **Myntra HackerRamp Project** (copy already matches the CV).
-- Replace the AgriTech project with **Holographic Microplastic Image Classification**: CNN-based classification using digital holography, 15% accuracy improvement, reduced manual review time; interactive Streamlit visualization. Tech stack: HTML, CSS, Python, APIs, Streamlit. Include GitHub and Live Demo links (from the CV's links — will use the same GitHub profile link; Live Demo link confirmed with user if not present).
+- Add **Holographic Microplastic Image Classification** (from the CV): CNN-based classification using digital holography, 15% accuracy improvement, reduced manual review time; interactive Streamlit visualization. Tech stack: HTML, CSS, Python, APIs, Streamlit. Links from the CV: GitHub → github.com/Shreya-idle, Live Demo → https://holographic-microplastic-image-classification.streamlit.app/
+- **Question for you:** the AgriTech project is on the site but not on the CV — keep it or drop it? Plan keeps it unless you say otherwise.
 
 ## 3. Skills section — rewrite from CV
 - **Languages:** C++, Python, JavaScript, Dart
