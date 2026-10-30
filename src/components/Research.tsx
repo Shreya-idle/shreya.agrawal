@@ -1,4 +1,4 @@
-import { FileText, Award } from "lucide-react";
+import { FileText, BookOpen } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -7,12 +7,9 @@ const Research = () => {
     {
       title: "Secure Biological Data Transfer Using Network Coding",
       topics: ["Network Coding", "Data Security", "Biological Data", "Information Theory"],
-      description: "Research on secure transmission of biological data using advanced network coding techniques to ensure data integrity and privacy in healthcare systems.",
-    },
-    {
-      title: "Advanced Deep Learning Models for EEG Signal Analysis and Seizure Classification",
-      topics: ["Deep Learning", "EEG Analysis", "Medical AI", "Signal Processing"],
-      description: "Development of sophisticated neural network architectures for analyzing EEG signals and accurate classification of seizure patterns for medical diagnosis.",
+      description:
+        "Research on secure transmission of biological data using advanced network coding techniques to ensure data integrity and privacy in healthcare systems.",
+      meta: "Springer Publication · DOI 10.1007/978-981-95-3841-6_34",
     },
   ];
 
@@ -22,7 +19,7 @@ const Research = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Research Publications</h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            Contributing to cutting-edge research in AI and network systems
+            Contributing to research in network systems and data security
           </p>
         </div>
 
@@ -38,7 +35,7 @@ const Research = () => {
                     {index === 0 ? (
                       <FileText className="h-6 w-6 text-secondary" />
                     ) : (
-                      <Award className="h-6 w-6 text-secondary" />
+                      <BookOpen className="h-6 w-6 text-secondary" />
                     )}
                   </div>
                   <div className="flex-1">
@@ -60,7 +57,8 @@ const Research = () => {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-foreground/70 leading-relaxed">{paper.description}</p>
+                <p className="text-foreground/70 leading-relaxed mb-3">{paper.description}</p>
+                <p className="text-sm text-foreground/50 font-sans">{paper.meta}</p>
               </CardContent>
             </Card>
           ))}

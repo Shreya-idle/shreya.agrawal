@@ -4,31 +4,43 @@ import { motion } from "framer-motion";
 const Skills = () => {
   const skillCategories = [
     {
-      category: "Languages & Core",
-      skills: ["Python", "C++", "Machine Learning", "Deep Learning"],
-      color: "bg-primary/20 text-primary border-primary/50",
+      category: "Programming Languages",
+      skills: ["Python", "JavaScript", "Dart", "C++", "SQL"],
     },
     {
-      category: "Web Development",
-      skills: ["React.js", "Next.js", "Node.js", "Express.js", "HTML", "CSS", "Tailwind CSS"],
-      color: "bg-blue-500/20 text-blue-400 border-blue-500/50",
+      category: "Frontend",
+      skills: ["React.js", "Next.js", "React Native", "Expo", "Flutter", "HTML5", "CSS3", "Tailwind CSS", "Vite", "Figma-to-Code", "Responsive UI", "Animations"],
     },
     {
-      category: "AI/ML Frameworks",
-      skills: ["Scikit-learn", "Neural Networks", "NLP"],
-      color: "bg-purple-500/20 text-purple-400 border-purple-500/50",
+      category: "Backend",
+      skills: ["Node.js", "NestJS", "FastAPI", "Express.js", "REST APIs", "WebSocket", "JWT & Authentication", "Service Architecture", "Request Validation", "Error Handling", "Caching"],
     },
     {
-      category: "Tools & Platforms",
-      skills: ["Firebase", "Flutter", "PostgreSQL", "MongoDB", "Streamlit", "System Design"],
-      color: "bg-orange-500/20 text-orange-400 border-orange-500/50",
+      category: "Databases & Data",
+      skills: ["PostgreSQL", "MongoDB", "Firebase", "Prisma ORM", "Schema Design", "Data Modeling", "CRUD", "Migrations", "Cursor Pagination"],
+    },
+    {
+      category: "AI / ML / GenAI",
+      skills: ["LLMs", "RAG", "LangChain", "Groq", "Ollama", "Qwen", "Llama", "CNN", "Computer Vision", "Image Classification", "AI Chatbots", "TTS & Voice AI", "BLIP-2", "3D U-Net", "MONAI", "MLflow", "LiveKit"],
+    },
+    {
+      category: "Testing & Security",
+      skills: ["Postman", "Swagger", "Locust", "MobSF", "Appium", "WebdriverIO", "Manual Testing"],
+    },
+    {
+      category: "DevOps & Tools",
+      skills: ["Git", "GitHub", "Docker", "Linux / WSL", "Android Studio", "Expo EAS", "Vercel", "Streamlit", "Figma"],
+    },
+    {
+      category: "Core Concepts",
+      skills: ["DSA", "DBMS", "System Design", "HLD / LLD", "API Contracts", "Scalability", "Containerization"],
     },
   ];
 
   return (
     <section id="skills" className="py-20 relative">
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -37,18 +49,18 @@ const Skills = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">Skills & Technologies</h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            Full-stack development with a focus on AI/ML and data science
+            Full-stack engineering with mobile development and a strong AI/ML foundation
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {skillCategories.map((category, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               className="bg-card/50 backdrop-blur-sm border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300"
             >
               <h3 className="text-xl font-semibold mb-4 text-foreground">{category.category}</h3>
@@ -57,7 +69,7 @@ const Skills = () => {
                   <Badge
                     key={skillIndex}
                     variant="outline"
-                    className={`${category.color} hover:scale-105 transition-transform`}
+                    className="bg-primary/10 text-primary border-primary/30 hover:scale-105 transition-transform"
                   >
                     {skill}
                   </Badge>
