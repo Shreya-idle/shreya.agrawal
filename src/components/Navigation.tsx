@@ -8,10 +8,10 @@ const Navigation = () => {
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Experience", href: "#experience" },
+    { name: "Education", href: "#education" },
     { name: "Research", href: "#research" },
     { name: "Hackathons", href: "#hackathons" },
     { name: "Projects", href: "#projects" },
-    { name: "Stats", href: "#stats" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -26,7 +26,7 @@ const Navigation = () => {
 
           {/* Center - Location/Status (hidden on mobile) */}
           <div className="hidden md:flex items-center gap-2 text-sm text-foreground/60">
-            <span>AI/ML Engineer</span>
+            <span>Software Engineer · Full-Stack · AI/ML</span>
           </div>
 
           {/* Right side - Menu */}

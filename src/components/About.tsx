@@ -32,7 +32,7 @@ const About = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">About Me</h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            AI researcher and developer passionate about solving real-world problems
+            Software engineer building production apps across web, mobile, backend, and AI
           </p>
         </motion.div>
 
@@ -44,16 +44,16 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="space-y-6"
           >
-            <h3 className="text-3xl font-bold text-foreground">AI/ML Engineer & Researcher</h3>
+            <h3 className="text-3xl font-bold text-foreground">Software Engineer · Full-Stack & AI/ML</h3>
             <p className="text-foreground/70 text-lg leading-relaxed">
-              I'm Shreya Agrawal, an AI/ML engineer specializing in machine learning, deep learning, 
-              and data science. My work focuses on developing intelligent systems and conducting research 
-              in cutting-edge areas like network coding and EEG signal analysis.
+              I'm Shreya Agrawal, a software engineer who builds production-oriented applications
+              across the stack — from Flutter mobile apps and React.js platforms to Node.js,
+              NestJS, and FastAPI backends.
             </p>
             <p className="text-foreground/70 text-lg leading-relaxed">
-              With experience as an AI intern at Amasqis and a strong foundation in competitive programming, 
-              I combine theoretical knowledge with practical implementation skills. I'm passionate about 
-              leveraging technology to create innovative solutions in healthcare, data security, and beyond.
+              With internship experience at Humanity Founders, OnitIndia, and amasQIS.ai, I work
+              on real-time systems, API integrations, database design, and AI-powered features,
+              alongside research in network coding for secure data transfer.
             </p>
           </motion.div>
 
