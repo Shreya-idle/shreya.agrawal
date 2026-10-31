@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, ExternalLink, Globe, Download } from "lucide-react";
+import { Mail, Github, Linkedin, ExternalLink, Globe, Download, Twitter, Youtube, GraduationCap, Palette, Smartphone, Blocks } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import resume from "@/assets/resume.pdf.asset.json";
@@ -10,28 +10,60 @@ const Contact = () => {
       label: "GitHub",
       value: "Shreya-idle",
       link: "https://github.com/Shreya-idle",
-      color: "primary",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "shreya-agrawal4",
-      link: "https://www.linkedin.com/in/shreya-agrawal4/",
-      color: "accent",
+      link: "https://www.linkedin.com/in/shreya-agrawal4",
+    },
+    {
+      icon: Twitter,
+      label: "X (Twitter)",
+      value: "@agrawal_sh65899",
+      link: "https://x.com/agrawal_sh65899",
+    },
+    {
+      icon: GraduationCap,
+      label: "GeeksforGeeks",
+      value: "agrawalshs1f1",
+      link: "https://www.geeksforgeeks.org/profile/agrawalshs1f1",
+    },
+    {
+      icon: Palette,
+      label: "Pinterest",
+      value: "agrawalshreya532",
+      link: "https://in.pinterest.com/agrawalshreya532/",
     },
     {
       icon: Mail,
       label: "Email",
       value: "agrawalshreya532@gmail.com",
       link: "mailto:agrawalshreya532@gmail.com",
-      color: "secondary",
     },
     {
       icon: Globe,
       label: "OnitIndia",
       value: "onitindia.com",
       link: "https://onitindia.com",
-      color: "primary",
+    },
+    {
+      icon: Smartphone,
+      label: "OnitIndia App",
+      value: "Google Play Store",
+      link: "https://play.google.com/store/apps/details?id=com.onitapp.india&pcampaignid=web_share",
+    },
+    {
+      icon: Blocks,
+      label: "Assignment Grid Bricks",
+      value: "assignmentgridbricks.vercel.app",
+      link: "https://assignmentgridbricks.vercel.app/overview",
+    },
+    {
+      icon: Youtube,
+      label: "Project Demo Video",
+      value: "Watch on YouTube",
+      link: "https://youtu.be/20a7TIB7bik",
     },
   ];
 
