@@ -1,35 +1,7 @@
-import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Experience from "@/components/Experience";
-import Education from "@/components/Education";
-import Research from "@/components/Research";
-import Hackathons from "@/components/Hackathons";
-import Projects from "@/components/Projects";
-
-import FigmaProject from "@/components/FigmaProject";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import PortfolioExperience from "@/components/PortfolioExperience";
 
 const Index = () => {
-  return (
-    <div className="min-h-screen">
-      <Navigation />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Education />
-      <Research />
-      <Hackathons />
-      <Projects />
-
-      <FigmaProject />
-      <Contact />
-      <Footer />
-    </div>
-  );
+  return <PortfolioExperience />;
 };
 
 export default Index;
