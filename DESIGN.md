@@ -45,7 +45,7 @@ Fraunces appears only in names and major section titles. Manrope carries all lon
 
 ## Layout
 
-Desktop content alternates between a narrow editorial column and wider dossier walls while the canvas remains fixed behind it. Mobile uses one reading column with the same 3D scene reframed behind the text. Sections use generous vertical distance to make camera transitions legible without scroll hijacking.
+Desktop content alternates between a narrow editorial column and wider dossier walls while the canvas remains fixed behind it. Capable desktop devices load the 3D scene after critical content; mobile, reduced-motion, data-saver, and low-power devices use a lightweight static orbital apparatus instead. Sections use generous vertical distance to make camera transitions legible without scroll hijacking.
 
 ## Elevation & Depth
 
@@ -62,3 +62,5 @@ Dossiers use a metadata rail, a restrained border, and a paper-like reading fiel
 ## Do's and Don'ts
 
 Do use real resume language, technical diagrams, restrained particles, and purposeful camera changes. Do not introduce game controls, fake metrics, excessive bloom, generic glassmorphism, or decorative objects unrelated to the portfolio content.
+
+Official technology and social logos may use their verified brand colors as content-specific identification. Keep surrounding labels and surfaces neutral, use restrained tinted plates, and provide contrast-safe backing for dark marks so the portfolio palette still controls hierarchy.

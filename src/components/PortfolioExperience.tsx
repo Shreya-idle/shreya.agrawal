@@ -16,6 +16,38 @@ function useMedia(query: string) {
   return matches;
 }
 
+type NavigatorHints = Navigator & { deviceMemory?: number; connection?: { saveData?: boolean } };
+
+function useSpatialCapability(reducedMotion: boolean) {
+  const [enabled, setEnabled] = useState(false);
+  useEffect(() => {
+    const hints = navigator as NavigatorHints;
+    const mobile = window.matchMedia("(max-width: 760px)").matches;
+    const lowPower = Boolean((hints.deviceMemory && hints.deviceMemory <= 4) || (hints.hardwareConcurrency && hints.hardwareConcurrency <= 4));
+    if (reducedMotion || mobile || lowPower || hints.connection?.saveData) return;
+
+    let cancelled = false;
+    const enable = () => { if (!cancelled) setEnabled(true); };
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(enable, { timeout: 1800 });
+      return () => { cancelled = true; window.cancelIdleCallback(idleId); };
+    }
+    const timeoutId = window.setTimeout(enable, 450);
+    return () => { cancelled = true; window.clearTimeout(timeoutId); };
+  }, [reducedMotion]);
+  return enabled;
+}
+
+function usePageVisibility() {
+  const [visible, setVisible] = useState(() => typeof document === "undefined" || !document.hidden);
+  useEffect(() => {
+    const update = () => setVisible(!document.hidden);
+    document.addEventListener("visibilitychange", update);
+    return () => document.removeEventListener("visibilitychange", update);
+  }, []);
+  return visible;
+}
+
 function SectionHeading({ code, title, note }: { code: string; title: string; note: string }) {
   return <header className="section-heading"><p className="record-label">{code}</p><h2>{title}</h2><p>{note}</p></header>;
 }
@@ -26,6 +58,8 @@ export default function PortfolioExperience() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const reducedMotion = useMedia("(prefers-reduced-motion: reduce)");
   const compact = useMedia("(max-width: 760px), (max-resolution: 1dppx)");
+  const spatialEnabled = useSpatialCapability(reducedMotion);
+  const pageVisible = usePageVisibility();
 
   useEffect(() => {
     document.title = "Shreya Agrawal — Software Engineer";
@@ -42,7 +76,10 @@ export default function PortfolioExperience() {
   const activeIndex = useMemo(() => Math.max(0, sections.findIndex((item) => item.id === activeSection)), [activeSection]);
   return <div className="portfolio-shell">
     <a className="skip-link" href="#main-content">Skip to portfolio content</a>
-    {!reducedMotion && <div className="scene-layer" aria-hidden="true"><Suspense fallback={<div className="scene-loading" />}><SpatialScene activeSection={activeSection} reducedMotion={reducedMotion} compact={compact} /></Suspense></div>}
+    <div className="scene-layer" aria-hidden="true">
+      <div className={`static-orbit ${spatialEnabled ? "static-orbit--ambient" : ""}`}><i /><i /><i /><span /></div>
+      {spatialEnabled && <Suspense fallback={<div className="scene-loading" />}><SpatialScene activeSection={activeSection} reducedMotion={reducedMotion} compact={compact} paused={!pageVisible} /></Suspense>}
+    </div>
     <div className="ambient-grid" aria-hidden="true" />
     <nav className="site-nav" aria-label="Portfolio sections">
       <a href="#home" className="site-mark"><span>SA</span><span className="site-mark__word">SHREYA.AGRAWAL</span></a>
@@ -63,7 +100,7 @@ export default function PortfolioExperience() {
 
       <section id="skills" className="spatial-section content-section"><div className="content-frame"><SectionHeading code="RECORD 02 / TECHNICAL ENVIRONMENT" title="Tools arranged by responsibility." note="Readable technical clusters, not a badge cloud" /><div className="skill-grid">{portfolio.skills.map((category, index) => <article className="skill-cluster" key={category.category}><div className="skill-cluster__index">{String(index + 1).padStart(2, "0")}</div><h3>{category.category}</h3><ul>{category.skills.map((skill) => <SkillSymbol key={skill} skill={skill} />)}</ul></article>)}</div></div></section>
 
-      <section id="projects" className="spatial-section content-section"><div className="content-frame content-frame--wide"><SectionHeading code="RECORD 03 / SELECTED PROJECTS" title="Detailed work, opened like evidence." note="Select a dossier to inspect its verified details" /><div className="project-wall">{portfolio.projects.map((project, index) => <button type="button" className="project-record" key={project.id} onClick={() => setSelectedProject(project)}><span className="project-record__number">P-{String(index + 1).padStart(2, "0")}</span><span><span className="record-label">{project.event}</span><strong>{project.title}</strong><span className="project-record__summary">{project.description}</span></span><ArrowUpRight aria-hidden="true" /></button>)}</div><div className="featured-work">{portfolio.featuredWork.map((work) => <article className="featured-work__card" key={work.title}><div><span className="record-label">{work.label}</span><h3>{work.title}</h3></div><div className="featured-work__actions">{work.links.map((link) => <a className="action-link" key={link.url} href={link.url} target="_blank" rel="noreferrer">{link.kind === "video" ? <Play aria-hidden="true" /> : <MonitorSmartphone aria-hidden="true" />}{link.label}</a>)}</div></article>)}</div></div></section>
+      <section id="projects" className="spatial-section content-section"><div className="content-frame content-frame--wide"><SectionHeading code="RECORD 03 / SELECTED PROJECTS" title="Detailed work, opened like evidence." note="Select a dossier to inspect its verified details" /><div className="project-wall">{portfolio.projects.map((project, index) => <button type="button" className="project-record" key={project.id} onClick={() => setSelectedProject(project)}><span className="project-record__number">P-{String(index + 1).padStart(2, "0")}</span><span><span className="record-label">{project.event}</span><strong>{project.title}</strong><span className="project-record__summary">{project.description}</span></span>{project.images?.[0] && <img className="project-record__visual" src={project.images[0]} alt="" loading="lazy" />}<ArrowUpRight aria-hidden="true" /></button>)}</div><div className="featured-work">{portfolio.featuredWork.map((work) => <article className="featured-work__card" key={work.title}><div><span className="record-label">{work.label}</span><h3>{work.title}</h3></div><div className="featured-work__actions">{work.links.map((link) => <a className="action-link" key={link.url} href={link.url} target="_blank" rel="noreferrer">{link.kind === "video" ? <Play aria-hidden="true" /> : <MonitorSmartphone aria-hidden="true" />}{link.label}</a>)}</div></article>)}</div></div></section>
 
       <section id="experience" className="spatial-section content-section"><div className="content-frame content-frame--right"><SectionHeading code="RECORD 04 / EXPERIENCE" title="A timeline of shipped systems." note="Professional and project experience" /><div className="timeline">{portfolio.experience.map((role, index) => <article className="timeline-entry" key={`${role.company}-${role.title}`}><div className="timeline-marker"><span>{String(index + 1).padStart(2, "0")}</span></div><div className="timeline-entry__content"><div className="timeline-entry__top"><div><span className="record-label">{role.type}</span><h3>{role.title}</h3>{role.link ? <a href={role.link} target="_blank" rel="noreferrer">{role.company}<ArrowUpRight aria-hidden="true" /></a> : <p className="company">{role.company}</p>}</div><time>{role.period}</time></div><ul className="record-list">{role.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>{role.workLinks && <div className="experience-work-links">{role.workLinks.map((link) => <a className="action-link" key={link.url} href={link.url} target="_blank" rel="noreferrer"><ExternalLink aria-hidden="true" />{link.label}</a>)}</div>}</div></article>)}</div></div></section>
 

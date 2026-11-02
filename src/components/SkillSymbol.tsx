@@ -81,10 +81,11 @@ function getMonogram(skill: string) {
 export default function SkillSymbol({ skill }: { skill: string }) {
   const icon = skillIcons[skill];
   const style = icon ? ({ "--skill-color": `#${icon.hex}` } as CSSProperties) : undefined;
+  const needsContrastPlate = skill === "GitHub";
 
   return (
-    <li className="skill-symbol" style={style} tabIndex={0} aria-label={skill} title={skill}>
-      <span className={`skill-symbol__mark ${icon ? "skill-symbol__mark--brand" : "skill-symbol__mark--mono"}`} aria-hidden="true">
+    <li className={`skill-symbol ${icon ? "skill-symbol--brand" : ""}`} style={style} tabIndex={0} aria-label={skill} title={skill}>
+      <span className={`skill-symbol__mark ${icon ? "skill-symbol__mark--brand" : "skill-symbol__mark--mono"} ${needsContrastPlate ? "skill-symbol__mark--contrast" : ""}`} aria-hidden="true">
         {icon ? (
           <svg viewBox="0 0 24 24" role="img" focusable="false">
             <path d={icon.path} />
